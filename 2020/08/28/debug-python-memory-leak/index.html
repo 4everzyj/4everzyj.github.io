@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"4everzyj.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="a programming beginner">
-<meta property="og:type" content="website">
-<meta property="og:title" content="4everzyj&#39;s blogs">
-<meta property="og:url" content="http://4everzyj.github.io/tags/tools/index.html">
+  <meta name="description" content="Aim find where the memory leak happened  Enviroment python3.6  Install1$ pip3 install pympler  Code1. print_diff step by step12345678from pympler import trackertr &#x3D; tracker.SummaryTracker()# compare w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debug python memory leak">
+<meta property="og:url" content="http://4everzyj.github.io/2020/08/28/debug-python-memory-leak/index.html">
 <meta property="og:site_name" content="4everzyj&#39;s blogs">
-<meta property="og:description" content="a programming beginner">
+<meta property="og:description" content="Aim find where the memory leak happened  Enviroment python3.6  Install1$ pip3 install pympler  Code1. print_diff step by step12345678from pympler import trackertr &#x3D; tracker.SummaryTracker()# compare w">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T09:21:02.000Z">
+<meta property="article:modified_time" content="2020-08-28T09:37:18.548Z">
 <meta property="article:author" content="Eddie Zhang">
+<meta property="article:tag" content="tools">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://4everzyj.github.io/tags/tools/">
+<link rel="canonical" href="http://4everzyj.github.io/2020/08/28/debug-python-memory-leak/">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: tools | 4everzyj's blogs</title>
+  <title>debug python memory leak | 4everzyj's blogs</title>
   
 
 
@@ -155,71 +159,107 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">tools
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://4everzyj.github.io/2020/08/28/debug-python-memory-leak/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/wechat_avatar.jpg">
+      <meta itemprop="name" content="Eddie Zhang">
+      <meta itemprop="description" content="a programming beginner">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4everzyj's blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          debug python memory leak
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-08-28 17:21:02 / Modified: 17:37:18" itemprop="dateCreated datePublished" datetime="2020-08-28T17:21:02+08:00">2020-08-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <h2 id="Aim"><a href="#Aim" class="headerlink" title="Aim"></a>Aim</h2><ul>
+<li>find where the memory leak happened</li>
+</ul>
+<h2 id="Enviroment"><a href="#Enviroment" class="headerlink" title="Enviroment"></a>Enviroment</h2><ul>
+<li>python3.6</li>
+</ul>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install pympler</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><h3 id="1-print-diff-step-by-step"><a href="#1-print-diff-step-by-step" class="headerlink" title="1. print_diff step by step"></a>1. print_diff step by step</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pympler <span class="keyword">import</span> tracker</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tr = tracker.SummaryTracker()</span><br><span class="line"></span><br><span class="line"><span class="comment"># compare with last summary</span></span><br><span class="line">tr.print_diff()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-28T17:21:02+08:00"
-              content="2020-08-28">
-          08-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/28/debug-python-memory-leak/" itemprop="url">
-            <span itemprop="name">debug python memory leak</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-12T18:56:11+08:00"
-              content="2020-08-12">
-          08-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/12/ubuntu-disk-io-problem/" itemprop="url">
-            <span itemprop="name">ubuntu disk io problem</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<h3 id="2-print-memory-useage-of-each-type"><a href="#2-print-memory-useage-of-each-type" class="headerlink" title="2. print memory useage of each type"></a>2. print memory useage of each type</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pympler <span class="keyword">import</span> tracker,summary,muppy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">all_objects = muppy.get_objects()</span><br><span class="line">sum1 = summary.summarize(all_objects)</span><br><span class="line">summary.print_(sum1)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/tools/" rel="tag"># tools</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/12/ubuntu-disk-io-problem/" rel="prev" title="ubuntu disk io problem">
+      <i class="fa fa-chevron-left"></i> ubuntu disk io problem
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -272,6 +312,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Aim"><span class="nav-number">1.</span> <span class="nav-text">Aim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enviroment"><span class="nav-number">2.</span> <span class="nav-text">Enviroment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">3.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">4.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-print-diff-step-by-step"><span class="nav-number">4.1.</span> <span class="nav-text">1. print_diff step by step</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-print-memory-useage-of-each-type"><span class="nav-number">4.2.</span> <span class="nav-text">2. print memory useage of each type</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
